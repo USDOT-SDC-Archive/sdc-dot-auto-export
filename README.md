@@ -1,5 +1,5 @@
 # sdc-dot-auto-export
-Repository for the auto-export lambda function
+Repository for the auto-export Lambda function
 
 # Content of repository
 This repository is the source control for the Lambda function for automatic export of data in team buckets. 
