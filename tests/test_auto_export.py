@@ -4,7 +4,6 @@ import sys
 from moto import mock_s3
 from moto import mock_ses
 from moto import mock_dynamodb2
-import botocore.errorfactory
 
 sys.path.append('./dot-sdc-auto-export')
 from dot_sdc_auto_export import lambda_function
@@ -83,9 +82,11 @@ def run_auto_export(file_path):
 @mock_dynamodb2
 def test_auto_export():
     print('-----------------------TEST_AUTO_EXPORT--------------------------')
+    ses_client = boto3.client('ses', region_name='us-east-1')
     try:
         run_auto_export('./tests/testFiles/test')
-    except botocore.errorfactory.MessageRejected as e:
-        assert True
+    except Exception as e:
+        if e.response['Error']['Code'] != 'MessageRejected':
+            assert False
 
-    assert False
+    assert True
