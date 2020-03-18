@@ -26,7 +26,7 @@ def setup_raw_submissions():
     return conn
 
 def setup_dynamodb_table():
-    dynamodb_client = boto3.resource('dynamodb')
+    dynamodb_client = boto3.client('dynamodb', region_name='us-east-1')
     dynamodb_client.create_table(
         AttributeDefinitions=[
             {
