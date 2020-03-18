@@ -50,7 +50,7 @@ def setup_dynamodb_table():
         Item={
             'Name': {'S': 'FirstTest'},
             'exportWorkflow': {
-                'M': {'BadTest': 'BadData'}
+                'M': {'BadTest': {'S': 'BadData'}}
             }
         }
     )
