@@ -15,3 +15,4 @@ The environment variables are located in the pytest.ini file. The pytest.ini fil
 This release contains the initial release of the auto-export Lambda function and some basic unit tests to reach 90% code coverage.
 
 SDC-1399: Create Lambda for the auto-export process
+SDC-1400: Send out emails from the lambda once auto-export occurrs
