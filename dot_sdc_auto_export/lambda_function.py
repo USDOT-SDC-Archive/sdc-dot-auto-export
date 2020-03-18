@@ -8,7 +8,7 @@ bucket_mapping = {
 
 
 def retrieveCVPExportWorkflow():
-    dynamodb_client = boto3.resource('dynamodb')
+    dynamodb_client = boto3.resource('dynamodb', region_name='us-east-1')
     table = dynamodb_client.Table(os.environ.get('DYNAMODB_AVAILABLE_DATASET'))
     availableDatasets = table.scan(TableName=os.environ.get('DYNAMODB_AVAILABLE_DATASET'))['Items']
     cvpExportWorkflow = {}
