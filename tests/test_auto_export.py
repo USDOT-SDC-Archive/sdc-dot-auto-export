@@ -79,7 +79,7 @@ def run_auto_export(file_path):
 
 @mock_s3
 @mock_ses
-@mock_dynamodb
+@mock_dynamodb2
 def test_auto_export():
     print('-----------------------TEST_AUTO_EXPORT--------------------------')
     run_auto_export('./tests/testFiles/test')
