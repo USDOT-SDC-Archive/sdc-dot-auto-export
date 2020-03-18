@@ -20,7 +20,7 @@ def retrieveCVPExportWorkflow():
 
 
 def notifyPOC(listOfPOC, emailContent):
-    ses_client = boto3.client('ses')
+    ses_client = boto3.client('ses', region_name='us-east-1')
     sender = os.environ.get('EMAIL_SENDER')
 
     try:
