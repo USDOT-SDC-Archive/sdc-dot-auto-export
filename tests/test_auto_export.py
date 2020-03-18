@@ -3,7 +3,7 @@ import boto3
 import sys
 from moto import mock_s3
 from moto import mock_ses
-from moto import mock_dynamodb
+from moto import mock_dynamodb2
 
 sys.path.append('./dot-sdc-auto-export')
 from dot_sdc_auto_export import lambda_function
@@ -25,6 +25,7 @@ def setup_raw_submissions():
     conn.create_bucket(Bucket=Export_Bucket_Name)
     return conn
 
+@mock_dynamodb2
 def setup_dynamodb_table():
     dynamodb_client = boto3.client('dynamodb', region_name='us-east-1')
     dynamodb_client.create_table(
@@ -66,7 +67,7 @@ def setup_dynamodb_table():
 
 @mock_s3
 @mock_ses
-@mock_dynamodb
+@mock_dynamodb2
 def run_auto_export(file_path):
     key = 'auto_export/test_type/test'
     conn = setup_raw_submissions()
