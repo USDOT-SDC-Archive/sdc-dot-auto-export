@@ -1,3 +1,6 @@
+## Archived
+CVP has been offboarded and this repo has been archived.
+
 # sdc-dot-auto-export
 Repository for the auto-export Lambda function
 
